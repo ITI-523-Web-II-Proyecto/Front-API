@@ -35,19 +35,21 @@ export class SigninComponent {
       if(this.myForm.valid){
         console.log('Formulario enviado:', this.myForm.value);
         this.empresasrv.crateEmp(this.myForm.value).subscribe((resp)=>{
-          alert("Se guardo correctamente");
+          alert("La empresa se registro correctamente");
           this.clearForm();
         },(err)=>{
           console.log(err);
-          alert("Error al guardar");
+          alert("Error al registrar la empresa");
         })
       }
     
   }
   clearForm() {
-    this.myForm.reset();  // Limpia el formulario
+    this.myForm.reset();  
    
   }
+
+  
 }
 
   

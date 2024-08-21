@@ -19,6 +19,10 @@ export class EmpresasrvService {
     return this.http.post<any>("http://localhost:3000/empresa",empresa);
 
   }
+
+  getEmp():Observable<Empresa[]>{
+    return this.http.get<Empresa[]>("http://localhost:3000/empresa");
+   }
   
 
 
