@@ -53,8 +53,11 @@
             <form [formGroup]="personalForm" (ngSubmit)="onSubmitPersonal()">
                 <h1>Crear Cuenta</h1>
                 <span>Crea tu cuenta Personal</span>
+                <input type="text" formControlName="id_persona" placeholder="Cedula">
                 <input type="text" formControlName="name" placeholder="Name">
-                <input type="email" formControlName="email" placeholder="Email">
+                <input type="email" formControlName="email" placeholder="Email">     
+                <input type="email" formControlName="email" placeholder="Telefono"> 
+                 
                 <input type="password" formControlName="password" placeholder="Password">
                 <button type="submit">Sign Up</button>
             </form>
