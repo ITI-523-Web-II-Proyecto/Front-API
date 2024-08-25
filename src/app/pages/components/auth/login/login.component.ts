@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { EmpresaService } from '../../../../services/empresa.service';
 import { Empresa } from '../../../../models/empresa';
+import { PersonaService } from '../../../../services/persona.service';
+import { Persona } from '../../../../models/persona';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,7 @@ export class LoginComponent {
   personalLoginForm!: FormGroup;
   empresaLoginForm!: FormGroup;
 
-  constructor( private fb: FormBuilder, private empresaService: EmpresaService, private router: Router) {
+  constructor( private fb: FormBuilder, private empresaService: EmpresaService, private personaService:PersonaService, private router: Router) {
     this.personalLoginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -31,14 +33,35 @@ export class LoginComponent {
   onSubmitPersonal() {
     if (this.personalLoginForm.valid) {
       console.log('Formulario personal enviado:', this.personalLoginForm.value);
-      // Implementar lógica de autenticación para cuentas personales
+  
+      const { email, password } = this.personalLoginForm.value;
+  
+      this.personaService.getPersona().subscribe({
+        next: (personas: Persona[]) => {
+          const persona = personas.find(pers =>
+            pers.email === email &&
+            pers.contraseña === password
+          );
+  
+          if (persona) {
+            alert('Inicio de sesión exitoso');
+            this.router.navigate(['/homePersonal']); // Redirige al home de persona
+          } else {
+            alert('Credenciales incorrectas');
+          }
+        },
+        error: (err) => {
+          console.error('Error al intentar iniciar sesión:', err);
+          alert('Error al intentar iniciar sesión');
+        }
+      });
     }
   }
 
   onSubmitEmpresa() {
     if (this.empresaLoginForm.valid) {
       console.log('Formulario de empresa enviado:', this.empresaLoginForm.value);
-      this.empresaService.getEmp().subscribe({
+      this.empresaService.getEmpresa().subscribe({
         next: (empresas: Empresa[]) => {
           const empresa = empresas.find(emp =>
             emp.url === this.empresaLoginForm.value.email &&

@@ -12,11 +12,11 @@ export class EmpresaService {
   constructor(private http: HttpClient) { }
 
 
-  crateEmp(empresa:Empresa):Observable<any>{
+  createEmpresa(empresa:Empresa):Observable<any>{
     return this.http.post<any>("http://localhost:3000/empresa",empresa);
   }
 
-  getEmp():Observable<Empresa[]>{
+  getEmpresa():Observable<Empresa[]>{
     return this.http.get<Empresa[]>("http://localhost:3000/empresa");
    }
 }
