@@ -28,7 +28,7 @@ export class GetEmpComponent {
     this.cargarDatos();
   }
   cargarDatos(){
-    this.empresasrv.getEmp().subscribe((datos)=>{
+    this.empresasrv.getEmpresa().subscribe((datos)=>{
 
       this.lista = datos;
     })

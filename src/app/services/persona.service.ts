@@ -11,8 +11,12 @@ export class PersonaService {
   constructor(private http: HttpClient) { }
 
 
-  crateEmp(persona:Persona):Observable<any>{
+  createPersona(persona:Persona):Observable<any>{
     return this.http.post<any>("http://localhost:3000/persona",persona);
   }
+
+  getPersona():Observable<Persona[]>{
+    return this.http.get<Persona[]>("http://localhost:3000/persona");
+   }
   
 }
