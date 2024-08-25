@@ -18,13 +18,14 @@
         </mat-card-header>
         <img mat-card-image src="assets/imgs/logo2.png" alt="ChoWork" width="600">
         <mat-card-content>
+            <p><strong>Contraseña:</strong> {{ contrasenaEmp }}</p>
             <p><strong>Teléfono:</strong> {{ empresa.telefono }}</p>
             <p><strong>Dirección:</strong> {{ empresa.direccion }}</p>
             <p><strong>Estado:</strong> {{ empresa.estado ? 'Activo' : 'Inactivo' }}</p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary" (click)="editEmpresa()">Editar</button>
-            <button mat-raised-button color="warn" (click)="openDeleteDialog()">Eliminar</button>
+            <button mat-raised-button color="warn" (click)="Delete()">Eliminar</button>
         </mat-card-actions>
     </mat-card>
     <mat-card *ngIf="!empresa">
