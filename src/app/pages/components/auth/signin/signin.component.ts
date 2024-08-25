@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { EmpresaService } from '../../../../services/empresa.service';
+import { Persona } from '../../../../models/persona';
+import { PersonaService } from '../../../../services/persona.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +17,7 @@ export class SigninComponent {
   empresaForm!: FormGroup;
   personalForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private empresasrv: EmpresaService,private router: Router) {
+  constructor(private fb: FormBuilder, private empresasrv: EmpresaService,private router: Router, private persona: PersonaService) {
 
     this.empresaForm = this.fb.group({
       id_empresa: ['', Validators.required],
@@ -48,7 +50,20 @@ export class SigninComponent {
   }
 
   onSubmitPersonal() {
-
+    if (this.personalForm.valid) {
+      console.log('Formulario de cliente enviado:', this.personalForm.value);
+      this.persona.crateEmp(this.personalForm.value).subscribe({
+        next: (resp) => {
+          alert("El cliente se registró correctamente");
+          this.clearForm(this.personalForm);
+          this.router.navigate(['/signin']);
+        },
+        error: (err) => {
+          console.log(err);
+          alert("Error al registrar el cliente");
+        }
+      });
+    }
   }
 
   clearForm(form: FormGroup) {
