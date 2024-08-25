@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Empresa } from '../../../../models/empresa';
 import { EmpresaService } from '../../../../services/empresa.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 
@@ -9,7 +10,7 @@ import { EmpresaService } from '../../../../services/empresa.service';
 @Component({
   selector: 'app-get-emp',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule,RouterLink, RouterOutlet],
   templateUrl: './get-emp.component.html',
   styleUrl: './get-emp.component.css'
 })
