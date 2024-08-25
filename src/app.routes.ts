@@ -6,13 +6,16 @@ import { LoginComponent } from './app/pages/components/auth/login/login.componen
 import { SigninComponent } from './app/pages/components/auth/signin/signin.component';
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
 import { HomePersonalComponent } from './app/pages/components/personal/home-personal/home-personal.component';
+import { PerfilEmpComponent } from './app/pages/components/empresa/perfil-emp/perfil-emp.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },  
   { path: 'login', component: LoginComponent },
   { path: 'signin', component: SigninComponent },
-  { path: 'oferta', component: OfertarEmpComponent },
-  { path: 'getEmp', component: GetEmpComponent },
+  { path: 'ofertaEmpresa', component: OfertarEmpComponent },
+  { path: 'perfilEmpresa', component: PerfilEmpComponent },
+  { path: 'getEmpresa', component: GetEmpComponent },
   { path: 'homeEmpresa', component: HomeEmpresaComponent },
-  { path: 'homePersonal', component: HomePersonalComponent }
+  { path: 'homePersonal', component: HomePersonalComponent },
+  { path: 'homePersonal', component: HomePersonalComponent },
 ];
