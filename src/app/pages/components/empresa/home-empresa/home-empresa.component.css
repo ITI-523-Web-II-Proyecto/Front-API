@@ -309,10 +309,16 @@ nav ul li a.language {
     height: auto; 
 }
 
+/* Stylo for footer */
+footer {
+    background-color: #000;
+    color: #f4f4f9;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 10%;
+}
 
-
-
-
+/* Responsive Design: Adjustments for Small Devices */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -359,7 +365,7 @@ nav ul li a.language {
     }
 }
 
-
+/* Media query para asegurar que el footer se ajuste bien en pantallas más pequeñas */
 @media (max-width: 768px) {
     footer {
         padding: 10px 0; 

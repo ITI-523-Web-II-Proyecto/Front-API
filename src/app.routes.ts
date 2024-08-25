@@ -1,4 +1,3 @@
-
 import { Routes } from '@angular/router';
 import { HomeComponent } from './app/pages/components/home/home.component';
 import { OfertarEmpComponent } from './app/pages/components/empresa/ofertar-emp/ofertar-emp.component';
@@ -6,9 +5,7 @@ import { GetEmpComponent } from './app/pages/components/empresa/get-emp/get-emp.
 import { LoginComponent } from './app/pages/components/auth/login/login.component';
 import { SigninComponent } from './app/pages/components/auth/signin/signin.component';
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
-import { PerfilComponent } from './app/pages/components/empresa/perfil/perfil.component';
-
-
+import { HomePersonalComponent } from './app/pages/components/personal/home-personal/home-personal.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },  
@@ -17,5 +14,5 @@ export const routes: Routes = [
   { path: 'oferta', component: OfertarEmpComponent },
   { path: 'getEmp', component: GetEmpComponent },
   { path: 'homeEmpresa', component: HomeEmpresaComponent },
-  { path: 'aplicante', component: PerfilComponent }
+  { path: 'homePersonal', component: HomePersonalComponent }
 ];
