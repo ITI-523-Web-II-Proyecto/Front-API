@@ -1,4 +1,3 @@
-
 import { Routes } from '@angular/router';
 import { HomeComponent } from './app/pages/components/home/home.component';
 import { OfertarEmpComponent } from './app/pages/components/empresa/ofertar-emp/ofertar-emp.component';
@@ -7,8 +6,6 @@ import { LoginComponent } from './app/pages/components/auth/login/login.componen
 import { SigninComponent } from './app/pages/components/auth/signin/signin.component';
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
 import { HomePersonalComponent } from './app/pages/components/personal/home-personal/home-personal.component';
-
-
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },  
