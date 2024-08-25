@@ -6,7 +6,7 @@ import { PuestosService } from '../../../../services/puestos.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { NgClass, NgFor, NgIf } from '@angular/common';
@@ -35,7 +35,8 @@ export class OfertarEmpComponent {
 
   constructor(
     private puestosService: PuestosService,
-    private snackBar: MatSnackBar // Aquí inyectas MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -78,24 +79,42 @@ export class OfertarEmpComponent {
 
   
   abrirDialogo(isNew: boolean, puesto?: Puestos) {
-    // Implementar la apertura del diálogo aquí
-  }
-
-  eliminarPuesto(id: number) {
-    this.puestosService.deletePuesto(id).subscribe({
-      next: () => {
-        this.snackBar.open('Puesto eliminado exitosamente', 'Cerrar', {
-          duration: 3000,
-        });
-        this.cargarPuestos(); // Recargar los puestos después de eliminar
-      },
-      error: (err) => {
-        console.error('Error deleting puesto', err);
-        this.snackBar.open('Error al eliminar el puesto', 'Cerrar', {
-          duration: 3000,
-        });
+    const accion = isNew ? 1 : 2; // 1 para crear, 2 para editar
+    const dialogRef = this.dialog.open(PuestosCrudComponent, {
+      width: '400px',
+      data: {
+        puesto: isNew ? {} : puesto, // Si es nuevo, manda un objeto vacío
+        accion: accion,
+        empresaId: localStorage.getItem('empresaId') // ID de la empresa que se pasa al componente hijo
+      }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarPuestos(); // Recargar la lista de puestos si se realizó una acción
       }
     });
   }
+  
 
+  eliminarPuesto(id: number) {
+    const confirmDelete = confirm('¿Estás seguro de que deseas eliminar este puesto?');
+    
+    if (confirmDelete) {
+      this.puestosService.deletePuesto(id).subscribe({
+        next: () => {
+          this.snackBar.open('Puesto eliminado exitosamente', 'Cerrar', {
+            duration: 3000,
+          });
+          this.cargarPuestos(); // Recargar los puestos después de eliminar
+        },
+        error: (err) => {
+          console.error('Error deleting puesto', err);
+          this.snackBar.open('Error al eliminar el puesto', 'Cerrar', {
+            duration: 3000,
+          });
+        }
+      });
+    }
+  }
 }
