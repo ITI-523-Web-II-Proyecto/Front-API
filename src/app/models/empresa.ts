@@ -9,5 +9,5 @@ export interface Empresa {
     direccion : string;
     contraseña : string;
     estado : boolean;
-    puestos: Puestos;
+    puestos: Puestos[];
 }

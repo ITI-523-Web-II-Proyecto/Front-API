@@ -44,6 +44,7 @@ export class LoginComponent {
           );
   
           if (persona) {
+            localStorage.setItem('personaId', persona.id_persona.toString());
             alert('Inicio de sesión exitoso');
             this.router.navigate(['/homePersonal']); // Redirige al home de persona
           } else {
@@ -69,6 +70,7 @@ export class LoginComponent {
           );
 
           if (empresa) {
+            localStorage.setItem('empresaId', empresa.id_empresa.toString());
             alert('Inicio de sesión exitoso');
             this.router.navigate(['/homeEmpresa']); 
           } else {

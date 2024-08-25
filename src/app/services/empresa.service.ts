@@ -9,14 +9,32 @@ import { Observable } from 'rxjs';
 })
 export class EmpresaService {
 
+  private apiUrl = 'http://localhost:3000/empresa'; // Asegúrate de que esta URL coincida con tu API backend
+
   constructor(private http: HttpClient) { }
 
-
-  createEmpresa(empresa:Empresa):Observable<any>{
-    return this.http.post<any>("http://localhost:3000/empresa",empresa);
+  // Método para crear una nueva empresa
+  createEmpresa(empresa: Empresa): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, empresa);
   }
 
-  getEmpresa():Observable<Empresa[]>{
-    return this.http.get<Empresa[]>("http://localhost:3000/empresa");
-   }
+  // Método para obtener todas las empresas
+  getEmpresa(): Observable<Empresa[]> {
+    return this.http.get<Empresa[]>(`${this.apiUrl}`);
+  }
+
+  // Método para obtener una empresa por su ID
+  getEmpresaById(id: number): Observable<Empresa> {
+    return this.http.get<Empresa>(`${this.apiUrl}/${id}`);
+  }
+
+  // Método para actualizar una empresa existente
+  updateEmpresa(empresa: Empresa): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${empresa.id_empresa}`, empresa);
+  }
+
+  // Método para eliminar una empresa por su ID
+  deleteEmpresa(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 }
