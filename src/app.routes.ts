@@ -6,6 +6,7 @@ import { GetEmpComponent } from './app/pages/components/empresa/get-emp/get-emp.
 import { LoginComponent } from './app/pages/components/auth/login/login.component';
 import { SigninComponent } from './app/pages/components/auth/signin/signin.component';
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
+import { HomePersonalComponent } from './app/pages/components/personal/home-personal/home-personal.component';
 
 
 
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'oferta', component: OfertarEmpComponent },
   { path: 'getEmp', component: GetEmpComponent },
-  { path: 'homeEmpresa', component: HomeEmpresaComponent }
+  { path: 'homeEmpresa', component: HomeEmpresaComponent },
+  { path: 'homePersonal', component: HomePersonalComponent }
 ];
