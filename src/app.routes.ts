@@ -7,6 +7,7 @@ import { SigninComponent } from './app/pages/components/auth/signin/signin.compo
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
 import { HomePersonalComponent } from './app/pages/components/personal/home-personal/home-personal.component';
 import { PerfilEmpComponent } from './app/pages/components/empresa/perfil-emp/perfil-emp.component';
+import { PerfilPerComponent } from './app/pages/components/personal/perfil-per/perfil-per.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },  
@@ -17,5 +18,5 @@ export const routes: Routes = [
   { path: 'getEmpresa', component: GetEmpComponent },
   { path: 'homeEmpresa', component: HomeEmpresaComponent },
   { path: 'homePersonal', component: HomePersonalComponent },
-  { path: 'homePersonal', component: HomePersonalComponent },
+  { path: 'perfilPersonal', component: PerfilPerComponent },
 ];

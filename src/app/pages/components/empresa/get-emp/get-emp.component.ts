@@ -4,9 +4,6 @@ import { Empresa } from '../../../../models/empresa';
 import { EmpresaService } from '../../../../services/empresa.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-get-emp',
   standalone: true,
@@ -24,9 +21,9 @@ export class GetEmpComponent {
 
 
   ngOnInit(){
-
     this.cargarDatos();
   }
+
   cargarDatos(){
     this.empresasrv.getEmpresa().subscribe((datos)=>{
 

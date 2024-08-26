@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class EmpresaService {
 
-  private apiUrl = 'http://localhost:3000/empresa'; // Asegúrate de que esta URL coincida con tu API backend
+  private apiUrl = 'http://localhost:3000/empresa'; 
 
   constructor(private http: HttpClient) { }
 

@@ -42,7 +42,7 @@ export class EditEmpComponent {
     });
   }
 
-  onSave(): void {
+  onSave() {
     if (this.empresaForm.valid) {
       const updatedEmpresa: Empresa = {
         ...this.data,
@@ -61,7 +61,7 @@ export class EditEmpComponent {
     }
   }
 
-  onCancel(): void {
+  onCancel() {
     this.dialogRef.close();
   }
 }
