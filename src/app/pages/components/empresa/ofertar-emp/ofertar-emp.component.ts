@@ -39,7 +39,7 @@ export class OfertarEmpComponent {
     private dialog: MatDialog,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cargarPuestos();
   }
 

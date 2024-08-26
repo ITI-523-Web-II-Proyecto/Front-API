@@ -41,11 +41,11 @@ export class PerfilEmpComponent {
     private snackBar: MatSnackBar
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loadEmpresa();
   }
 
-  loadEmpresa(): void {
+  loadEmpresa() {
     const empresaId = localStorage.getItem('empresaId'); // Obtener el ID de empresa desde localStorage
     if (empresaId) {
       this.empresaService.getEmpresaById(Number(empresaId)).subscribe({
@@ -95,7 +95,7 @@ export class PerfilEmpComponent {
     });
   }
 
-  Delete(){
+  Delete() {
     const confirmDelete = confirm('¿Estás seguro de que deseas eliminar esta empresa?');
     if (confirmDelete) {
       this.empresaService.deleteEmpresa(this.empresa.id_empresa).subscribe({

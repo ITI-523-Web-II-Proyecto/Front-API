@@ -14,7 +14,7 @@ export class FooterComponent {
 
   shouldShowFooter(): boolean {
     // Lista de rutas en las que no quieres mostrar el footer
-    const noFooterRoutes = ['/login', '/signin', '/ofertaEmpresa','/perfilEmpresa','/getEmpresa'];
+    const noFooterRoutes = ['/login', '/signin', '/ofertaEmpresa','/perfilEmpresa','/getEmpresa','/perfilPersonal','/ofertaTrabajo', '/certificaciones'];
     return !noFooterRoutes.includes(this.router.url);
   }
 
