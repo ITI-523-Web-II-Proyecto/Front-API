@@ -41,4 +41,8 @@ export class PersonaService {
   crateCert(certificado:Certificado):Observable<any>{
     return this.http.post<any>("http://localhost:3000/certificado",certificado);
   }
+
+  getAllCert(): Observable<Persona> {
+    return this.http.get<any>("http://localhost:3000/certificado");
+  }
 }
