@@ -6,7 +6,8 @@ import { GetEmpComponent } from './app/pages/components/empresa/get-emp/get-emp.
 import { LoginComponent } from './app/pages/components/auth/login/login.component';
 import { SigninComponent } from './app/pages/components/auth/signin/signin.component';
 import { HomeEmpresaComponent } from './app/pages/components/empresa/home-empresa/home-empresa.component';
-import { PerfilComponent } from './app/pages/components/empresa/perfil/perfil.component';
+import { PerfilComponent } from './app/pages/components/personal/perfil/perfil.component';
+import { CertificadosComponent } from './app/pages/components/personal/certificados/certificados.component';
 
 
 
@@ -17,5 +18,9 @@ export const routes: Routes = [
   { path: 'oferta', component: OfertarEmpComponent },
   { path: 'getEmp', component: GetEmpComponent },
   { path: 'homeEmpresa', component: HomeEmpresaComponent },
-  { path: 'aplicante', component: PerfilComponent }
+  { path: 'aplicante', component: PerfilComponent },
+  { path: 'certificado', component: CertificadosComponent }
+
+
+  
 ];
