@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Persona } from '../models/persona';
 import { Observable } from 'rxjs';
+import { Certificado } from '../models/certificado';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class PersonaService {
   // Método para eliminar una persona por su ID
   deletePersona(id: number): Observable<any> {
     return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
+
+  crateCert(certificado:Certificado):Observable<any>{
+    return this.http.post<any>("http://localhost:3000/certificado",certificado);
   }
 }
